@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+    {{name}}
+    {% for profile in profiles %}
+  <h2>Profile Information</h2>
+  <hr>
+  <h3>Name:{{profile.name}}</h3>
+  <h3>Father_name:{{profile.father_name}}</h3>
+  <h3>Cnic:{{profile.cnic}}</h3>
+  <h3>Plotno:{{profile.plot_No}}</h3>
+  <h3>Totalprice:{{profile.total_price}}</h3>
+
+  <hr>
+<div>
+  <h2>Installments</h2>
+  {% for installment in installments %}
+  <hr>
+  <h3>Installments Fees: {{installment.installament_fees}}</h3>
+  <h3>Installment Date: {{installment.date}}</h3>
+  {% endfor %}
+</div>
+
+  {% endfor %}
+
+    <a href="{% url 'logout'%}">Logout</a>
+</body>
+</html>
